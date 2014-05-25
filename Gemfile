@@ -8,6 +8,10 @@ gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
+require 'rbconfig'
+
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
@@ -33,7 +37,7 @@ group :test do
 
   # Uncomment these lines on Windows.
   gem 'rb-notifu', '0.0.4'
-  gem 'wdm', '0.1.0'
+  gem 'wdm', '0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
 end
 
 gem 'sass-rails', '~> 4.0.3'
