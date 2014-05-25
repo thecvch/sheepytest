@@ -29,6 +29,8 @@ group :test do
   gem 'cucumber-rails', '1.4.0', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 
+  gem "minitest"
+
   # Uncomment this line on OS X.
   # gem 'growl', '1.0.3'
 
