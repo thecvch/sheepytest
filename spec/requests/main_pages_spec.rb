@@ -2,47 +2,27 @@ require 'spec_helper'
 
 describe "Main pages" do
 
+  subject { page }
+
   describe "Home page" do
+    before { visit root_path }
 
-    it "should have the content 'SheepyTest'" do
-      visit '/main_pages/home'
-      expect(page).to have_content('Sheepy Test')
-    end
-
-    it "should have the base title" do
-      visit '/main_pages/home'
-      expect(page).to have_title("Sheepy Test")
-    end
-
-    it "should not have a custom page title" do
-      visit '/main_pages/home'
-      expect(page).not_to have_title('| Home')
-    end
+    it { should have_content('Sheepy Test') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Home') }
   end
 
   describe "ContactUs page" do
+    before { visit contact_path }
 
-    it "should have the content 'Contact Us'" do
-      visit '/main_pages/contactus'
-      expect(page).to have_content('Contact Us')
-    end
-
-    it "should have the title 'Contact Us'" do
-      visit '/main_pages/contactus'
-      expect(page).to have_title("Contact Us")
-    end
+    it { should have_content('Contact') }
+    it { should have_title(full_title('Contact Us')) }
   end
 
   describe "About page" do
+    before { visit about_path }
 
-    it "should have the content 'About Us'" do
-      visit '/main_pages/about'
-      expect(page).to have_content('About Us')
-    end
-
-    it "should have the title 'About Us'" do
-      visit '/main_pages/about'
-      expect(page).to have_title("About Us")
-    end
+    it { should have_content('About') }
+    it { should have_title(full_title('About Us')) }
   end
 end
