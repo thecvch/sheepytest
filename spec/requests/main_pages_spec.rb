@@ -9,13 +9,16 @@ describe "Main pages" do
       expect(page).to have_content('Sheepy Test')
     end
 
-    it "should have the right title" do
+    it "should have the base title" do
       visit '/main_pages/home'
-      expect(page).to have_title("Home")
+      expect(page).to have_title("Sheepy Test")
+    end
+
+    it "should not have a custom page title" do
+      visit '/main_pages/home'
+      expect(page).not_to have_title('| Home')
     end
   end
-
-
 
   describe "ContactUs page" do
 
